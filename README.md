@@ -1,6 +1,8 @@
 # miniJediGame
 Tooo freaking hard
 
+The little [website](https://mini-jedi-game.vercel.app/)
+
 ## Anyone fill free to make it better?
 - fork it
 - git clone it
