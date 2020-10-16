@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <title>Jedi Game</title>
+          <link rel="stylesheet" href="./style/style.css">
+     </head>
+     <body>
+          <!-- header -->
+          <header>
+               <h1>Hello world</h1>
+          </header>
+
+          <!-- players -->
+          <section class="interface">
+
+               <!-- We are using the onclick even to connect it to the game manager that will send the information of what player we selected -->
+
+               <a href="#" onclick="gameManager.setGameStart('Yoda')">
+                    <img src="./img/yoda.jpeg" alt="Yodo">
+                    <div>
+                         <h3>Yoda</h3>
+                         <p>A chill dude very smart and strong jedi</p>
+                    </div>
+               </a>
+               <a href="#" onclick="gameManager.setGameStart('Obi-wan')">
+                    <img src="./img/obi-wan.jpeg" alt="Obi Wan">
+                    <div>
+                         <h3>Obi Wan</h3>
+                         <p>A chill dude very smart and strong jedi</p>
+                    </div>
+               </a>
+               <a href="#" onclick="gameManager.setGameStart('Rey')">
+                    <img src="./img/rey.jpeg" alt="Rey">
+                    <div>
+                         <h3>Rey</h3>
+                         <p>A chill dude very smart and strong jedi</p>
+                    </div>
+               </a>
+               <a href="#" onclick="gameManager.setGameStart('Darth Maul')">
+                    <img src="./img/darth maul.jpeg" alt="Maul">
+                    <div>
+                         <h3>Darth Maul</h3>
+                         <p>bad but strong jedi</p>
+                    </div>
+               </a>
+               <a href="#" onclick="gameManager.setGameStart('Kylo Ren')">
+                    <img src="./img/kylo ren.jpeg" alt="Kylo ren">
+                    <div>
+                         <h3>Kylo Ren</h3>
+                         <p>A chill dude very smart and strong jedi</p>
+                    </div>
+               </a>
+          </section>
+
+          <!-- player Attack bar? -->
+          <div class="actions"></div>
+
+          <!-- areana PlaceHolder -->
+          <div class="arena"></div>
+
+          <!-- enemy place holder -->
+          <div class="enemy"></div>
+
+          
+
+
+          <!-- script -->
+          <script src="script.js"></script>
+     </body>
+</html>
