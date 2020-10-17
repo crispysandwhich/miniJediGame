@@ -1,6 +1,8 @@
 /*
-  Alrighty so we are going to get started with building a player class that will have the default Jedi params.
-  There will also be an Epic Jedi that will be able to a multiplier
+ Below is the player class this is basically going to be where you will create a jedi.
+ It has two methods
+  - jediDuel (takes an object) - creates a dueling effect
+  - callOut (takes an object) - that gets the taunts of the jedi
 */
 
 // ================= Player Class ==============
@@ -61,8 +63,6 @@ class EpicPlayerJedi extends PlayerJedi{
   }
 }
 
-
-
 const listOfPlayers = [
   {
     name: 'Obi-wan',
@@ -92,9 +92,11 @@ const listOfPlayers = [
     taunt: ['You are ungrateful', 'I will take back what is mine']
   }
 ]
+// ===================================================================================
 
 /*
-  Below are player objects that we will be using... Each player with their own unique.... skills
+  This function selects takes in a player name and a player list of objects that are already pre made.
+  The function goes through the playerList array looking if the jediName is the same as the player list name and then spits it out
 */
 function playerSelector(objInsideArr, jediName){
   let playerName;
@@ -108,6 +110,7 @@ function playerSelector(objInsideArr, jediName){
   return playerName;
 }
 
+// This needs some work
 function enemySelector(obj,jediName){
   let playerName;
   const trash = [];
@@ -127,32 +130,29 @@ function enemySelector(obj,jediName){
 }
 
 
-//This is going to be able to assaign in global and not just availble in the game manager method
+/*
+  These varaibles are for the global scope which will then be used inside the gameManager constructor
+*/
 let player;
 
 let enemy;
 
 let jediName;
 
-
-
-// player = playerSelector(listOfPlayers, 'Yoda');
-// player = new EpicPlayerJedi(player);
-// console.log(player.name)
-
-
 /*
   Game Manager
-
+  This is a constor function that will take in 4 methods
+  - setGameStart - will take the jediName and pass it through the constructor
+  - resetPlayer
+    - will use the global player variable and assign it new Player object that will take in the function that will choose the jedi with the jediName given.
+    -
 */
 
 const gameManager = {
   setGameStart: function(jediName){
     this.resetPlayer(jediName);
-    this.setPreFight(jediName);
-    // this.name = jediName
-    // console.log(this.name)
-    // this.setFight(jediName)
+    this.setPreFight();
+
   },
   // This will actually create our player in the game
   resetPlayer: function(jediName){
