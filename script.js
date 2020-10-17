@@ -120,6 +120,9 @@ function enemySelector(obj,jediName){
     randomNum = Math.floor(Math.random() * obj.length);
     playerName = obj[randomNum]
   }
+
+  // do while loop
+
   return playerName
 }
 
@@ -168,18 +171,23 @@ const gameManager = {
 
     // Grabbing the container with all the players
     let getInterface = document.querySelector('.interface');
-    getInterface.innerHTML = `
-        <img src="img/${jediName.toLowerCase()}.jpeg" class="img-avatar">
+    const fight = document.createElement('div');
+    fight.className = 'innerInterface'
+    getInterface.innerHTML = '';
+    getInterface.appendChild(fight)
+    fight.innerHTML = `
         <div>
-        <h3>${jediName}</h3>
-        <p class="health-player">Health: ${player.health}</p>
-        <p>Force Attack: ${player.forceAttack}</p>
-        <p>Multiplier: ${player.attackMult ? player.attackMult : 'struggle'}</p>
+          <img src="img/${jediName.toLowerCase()}.jpeg" class="img-avatar">
+          <div>
+          <h3>${jediName}</h3>
+          <p class="health-player">Health: ${player.health}</p>
+          <p>Force Attack: ${player.forceAttack}</p>
+          <p>Multiplier: ${player.attackMult ? player.attackMult : 'struggle'}</p>
+          </div>
         </div>`
 
   },
   setPreFight: function(jediName){
-    const jedi = jediName;
     let getHeader = document.querySelector('header')
     let getAction = document.querySelector('.actions')
     let getArena = document.querySelector('.arena');
@@ -197,7 +205,7 @@ const gameManager = {
     // console.log(jediName.jediDuel())
     // Generate Enemy
     enemy = new PlayerJedi(enemySelector(listOfPlayers,jediName));
-    console.log('pls' + jediName.name)
+    // console.log('pls' + jediName.name)
     getHeader.innerHTML = '<p>Attack or Taunt</p>'
     getAction.innerHTML = `<a href="#" class="btn-preFight" onclick="jediName.jediDuel(enemy)">Attack</a>`
     getEnemy.innerHTML = `
