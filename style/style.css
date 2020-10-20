@@ -93,6 +93,7 @@ body{
   padding-top: 20px;
   max-width: 1350px;
   margin: 0 auto;
+  height: 100vh;
 }
 #interfaceHeader{
   width: 100%;
