@@ -168,24 +168,8 @@ const gameManager = {
     }else if(jediName === 'Kylo Ren'){
       player = new PlayerJedi(playerSelector(listOfPlayers, jediName))
     }
-
     // Grabbing the container with all the players
-    let getInterface = document.querySelector('.interface');
-    const fight = document.createElement('div');
-    fight.className = 'innerInterface'
-    getInterface.innerHTML = '';
-    getInterface.appendChild(fight)
-    fight.innerHTML = `
-        <div>
-          <img src="img/${jediName.toLowerCase()}.jpeg" class="img-avatar">
-          <div>
-          <h3>${jediName}</h3>
-          <p class="health-player">Health: ${player.health}</p>
-          <p>Force Attack: ${player.forceAttack}</p>
-          <p>Multiplier: ${player.attackMult ? player.attackMult : 'struggle'}</p>
-          </div>
-        </div>`
-
+    createFight(jediName);
   },
   setPreFight: function(jediName){
     let getHeader = document.querySelector('header')
@@ -231,7 +215,25 @@ const gameManager = {
 
 
 
+function createFight(jediName){
 
+  const getInterface = document.querySelector('.jediProfiles');
+  const fight = document.createElement('div');
+
+  fight.className = 'innerInterface'
+  getInterface.innerHTML = '';
+  getInterface.appendChild(fight)
+  fight.innerHTML = `
+      <div>
+        <img src="img/${jediName.toLowerCase()}.jpeg" class="img-avatar">
+        <div>
+        <h3>${jediName}</h3>
+        <p class="health-player">Health: ${player.health}</p>
+        <p>Force Attack: ${player.forceAttack}</p>
+        <p>Multiplier: ${player.attackMult ? player.attackMult : 'struggle'}</p>
+        </div>
+      </div>`
+}
 
 
 
