@@ -3,53 +3,82 @@
      <head>
           <title>Jedi Game</title>
           <link rel="stylesheet" href="./style/style.css">
+          <!-- Font Awesome -->
+          <script src="https://kit.fontawesome.com/2355a3d2cd.js" crossorigin="anonymous"></script>
      </head>
      <body>
           <!-- header -->
-          <header>
-               <h1>WithForce</h1>
+          <header id="mainHeader">
+               <nav class="miniNav">
+                    <a href="#">About</a>
+                    <h1>StarWarsGame</h1>
+                    <a href="#">Contact</a>
+               </nav>
+               <div class="gradient"></div>
           </header>
 
           <!-- players -->
           <section class="interface">
 
-               <!-- We are using the onclick even to connect it to the game manager that will send the information of what player we selected -->
+               <header id="interfaceHeader">
+                    <div class="container">
+                         <div class="header-content">
+                              <h2>Welcome</h2>
+                              <p>To play it is simple, <strong>choose</strong> a jedi, <strong>find</strong> an enemy, <strong>fight</strong>. And hope you win.</p>
+                         </div>
+                    </div>
+               </header>
 
-               <a href="#" onclick="gameManager.setGameStart('Yoda')">
-                    <img src="./img/yoda.jpeg" alt="Yodo">
-                    <div class="picture-text">
-                         <h3>Yoda</h3>
-                         <p>A chill dude very smart and strong jedi</p>
+
+               <!-- We are using the onclick even to connect it to the game manager that will send the information of what player we selected -->
+               <div class="jediProfiles">
+                    <div class="container">
+                         <a href="#" onclick="gameManager.setGameStart('Yoda')">
+                              <img src="./img/yoda.jpeg" alt="Yodo" class="jedi-image">
+                              <div class="picture-text">
+                                   <h3>Yoda</h3>
+                                   <p>A chill dude very smart and strong jedi</p>
+                              </div>
+                         </a>
+
+                         <a href="#" onclick="gameManager.setGameStart('Obi-wan')">
+                              <img src="./img/obi-wan.jpeg" alt="Obi Wan" class="jedi-image">
+                              <div class="picture-text">
+                                   <h3>Obi Wan</h3>
+                                   <p>A chill dude very smart and strong jedi</p>
+                              </div>
+                         </a>
+
+                         <a href="#" onclick="gameManager.setGameStart('Rey')">
+                              <img src="./img/rey.jpeg" alt="Rey" class="jedi-image">
+                              <div class="picture-text">
+                                   <h3>Rey</h3>
+                                   <p>A chill dude very smart and strong jedi</p>
+                              </div>
+                         </a>
+
+                         <a href="#" onclick="gameManager.setGameStart('Darth Maul')">
+                              <img src="./img/darth maul.jpeg" alt="Maul" class="jedi-image">
+                              <div class="picture-text">
+                                   <h3>Darth Maul</h3>
+                                   <p>bad but strong jedi</p>
+                              </div>
+                         </a>
+
+                         <a href="#" onclick="gameManager.setGameStart('Kylo Ren')">
+                              <img src="./img/kylo ren.jpeg" alt="Kylo ren" class="jedi-image">
+                              <div class="picture-text">
+                                   <h3>Kylo Ren</h3>
+                                   <p>A chill dude very smart and strong jedi</p>
+                              </div>
+                         </a>
                     </div>
-               </a>
-               <a href="#" onclick="gameManager.setGameStart('Obi-wan')">
-                    <img src="./img/obi-wan.jpeg" alt="Obi Wan">
-                    <div class="picture-text">
-                         <h3>Obi Wan</h3>
-                         <p>A chill dude very smart and strong jedi</p>
-                    </div>
-               </a>
-               <a href="#" onclick="gameManager.setGameStart('Rey')">
-                    <img src="./img/rey.jpeg" alt="Rey">
-                    <div class="picture-text">
-                         <h3>Rey</h3>
-                         <p>A chill dude very smart and strong jedi</p>
-                    </div>
-               </a>
-               <a href="#" onclick="gameManager.setGameStart('Darth Maul')">
-                    <img src="./img/darth maul.jpeg" alt="Maul">
-                    <div class="picture-text">
-                         <h3>Darth Maul</h3>
-                         <p>bad but strong jedi</p>
-                    </div>
-               </a>
-               <a href="#" onclick="gameManager.setGameStart('Kylo Ren')">
-                    <img src="./img/kylo ren.jpeg" alt="Kylo ren">
-                    <div class="picture-text">
-                         <h3>Kylo Ren</h3>
-                         <p>A chill dude very smart and strong jedi</p>
-                    </div>
-               </a>
+
+
+               </div>
+
+          </section>
+
           <!-- player Attack bar? -->
           <div class="actions"></div>
 
@@ -58,12 +87,32 @@
 
           <!-- enemy place holder -->
           <div class="enemy"></div>
-          </section>
 
 
 
 
 
+          <footer id="mainFooter">
+               <div class="gradient-f"></div>
+               <div class="footerContent">
+                    <ul class="socialMedia">
+                         <li>
+                              <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                         </li>
+                         <li>
+                              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                         </li>
+                         <li>
+                              <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                         </li>
+                         <li>
+                              <a href="#" target="_blank"><i class="fas fa-plug"></i></a>
+                         </li>
+                    </ul>
+                    <p>Made with 💙  <a href="https://github.com/deG3nt3lm4n" target="_blank">de_gentleman</a></p>
+                    <p>Join the <a href="#" target="_blank">discord <i class="fab fa-discord"></i></a> check it out!</p>
+               </div>
+          </footer>
 
           <!-- script -->
           <script src="script.js"></script>
