@@ -172,35 +172,33 @@ const gameManager = {
     createFight(jediName);
   },
   setPreFight: function(jediName){
-    let getHeader = document.querySelector('header')
-    let getAction = document.querySelector('.actions')
-    let getArena = document.querySelector('.arena');
 
-    getHeader.innerHTML = `<p>Goal: Find an enemy and Destroy Enemy</p>`
-    getAction.innerHTML = `<a href="#" class="btn-preFight" onclick="gameManager.setFight()">Search for enemy</a>`
-
-    getArena.style.visibility = 'visible'
   },
   setFight: function(){
-    let getHeader = document.querySelector('header')
-    let getAction = document.querySelector('.actions')
-    let getEnemy = document.querySelector('.enemy');
-    jediName = player
-    // console.log(jediName.jediDuel())
-    // Generate Enemy
-    enemy = new PlayerJedi(enemySelector(listOfPlayers,jediName));
-    // console.log('pls' + jediName.name)
+    const getInterface = document.querySelector('.jediProfiles')
+
+    const getHeader = document.querySelector('.header-content')
     getHeader.innerHTML = '<p>Attack or Taunt</p>'
+
+    let getEnemy = document.createElement('div');
+    jediName = player
+
+    enemy = new PlayerJedi(enemySelector(listOfPlayers,jediName));
+
+    let getAction = document.querySelector('.actions')
     getAction.innerHTML = `<a href="#" class="btn-preFight" onclick="jediName.jediDuel(enemy)">Attack</a>`
     getEnemy.innerHTML = `
-    <img src="img/${enemy.name.toLowerCase()}.jpeg" class="img-avatar">
-    <div>
-    <h3>${enemy.name}</h3>
-    <p class="health-enemy">Health: ${enemy.health}</p>
-    <p>Force Attack: ${enemy.forceAttack}</p>
-    <p>Multiplier: ${enemy.attackMult ? enemy.attackMult : 'struggle'}</p>
+    <div class='jediPlayer'>
+      <img src="img/${enemy.name.toLowerCase()}.jpeg" class="img-avatar">
+      <div>
+      <h3>${enemy.name}</h3>
+      <p class="health-enemy">Health: ${enemy.health}</p>
+      <p>Force Attack: ${enemy.forceAttack}</p>
+      <p>Multiplier: ${enemy.attackMult ? enemy.attackMult : 'struggle'}</p>
+      </div>
     </div>`
 
+    getInterface.appendChild(getEnemy)
   }
 }
 
@@ -216,23 +214,37 @@ const gameManager = {
 
 
 function createFight(jediName){
+// header
+  const getHeader = document.querySelector('.header-content')
+  getHeader.innerHTML = `<h2>${jediName}</h2>
+  <p>Your goal is to win! good luck</p>`
+// content
+  const getInterface = document.querySelector('.jediProfiles .container');
+  // adding a class
+  getInterface.classList.add('jediFight')
+  const playerDiv = document.createElement('div');
 
-  const getInterface = document.querySelector('.jediProfiles');
-  const fight = document.createElement('div');
+  let getAction = document.createElement('div');
+  getAction.className = 'actions'
+  getAction.innerHTML = `<a href="#" class="btn-preFight" onclick="gameManager.setFight()">Search for enemy</a>`
+  // let getArena = document.querySelector('.arena');
 
-  fight.className = 'innerInterface'
+  // export content
   getInterface.innerHTML = '';
-  getInterface.appendChild(fight)
-  fight.innerHTML = `
-      <div>
+  playerDiv.innerHTML = `
+      <div class="jediPlayer">
         <img src="img/${jediName.toLowerCase()}.jpeg" class="img-avatar">
-        <div>
+        <div class="jediPlayerInfo">
         <h3>${jediName}</h3>
         <p class="health-player">Health: ${player.health}</p>
         <p>Force Attack: ${player.forceAttack}</p>
         <p>Multiplier: ${player.attackMult ? player.attackMult : 'struggle'}</p>
         </div>
       </div>`
+
+  getInterface.appendChild(playerDiv);
+  getInterface.appendChild(getAction);
+
 }
 
 
