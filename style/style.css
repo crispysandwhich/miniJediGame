@@ -124,6 +124,9 @@ body{
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+.jedi{
+  flex-basis: 300px;
+}
 .interface .jediProfiles a{
   display: block;
   width: 300px;
@@ -182,7 +185,7 @@ body{
   justify-content: space-between;
 }
 .actions{
-  width: 80px;
+  flex-basis: 80px;
   height: 50px;
   text-align: center;
 
@@ -238,4 +241,26 @@ body{
 }
 .footerContent p a{
   color: inherit;
+}
+/* Media query */
+@media(max-width: 375px){
+  #interfaceHeader{
+    text-align: center;
+  }
+  .miniNav{
+    max-width: none;
+    justify-content: space-between;
+  }
+  #mainFooter{
+    font-size: 12px;
+  }
+  .footerContent .socialMedia,
+  .footerContent p{
+    flex-basis: 33%;
+  }
+  .interface .jediProfiles .container{
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

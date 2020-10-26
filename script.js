@@ -175,22 +175,27 @@ const gameManager = {
 
   },
   setFight: function(){
-    const getInterface = document.querySelector('.jediProfiles')
 
+    // grabs the interface header
     const getHeader = document.querySelector('.header-content')
     getHeader.innerHTML = '<p>Attack or Taunt</p>'
 
-    let getEnemy = document.createElement('div');
-    jediName = player
+    // Creates an enemy div
+    const getEnemy = document.createElement('div');
+    getEnemy.classList.add('jedi')
 
+    jediName = player
+    // with the enemy variables selects an enemy from the list of players
     enemy = new PlayerJedi(enemySelector(listOfPlayers,jediName));
+
 
     let getAction = document.querySelector('.actions')
     getAction.innerHTML = `<a href="#" class="btn-preFight" onclick="jediName.jediDuel(enemy)">Attack</a>`
+
     getEnemy.innerHTML = `
     <div class='jediPlayer'>
       <img src="img/${enemy.name.toLowerCase()}.jpeg" class="img-avatar">
-      <div>
+      <div class="jediPlayerInfo">
       <h3>${enemy.name}</h3>
       <p class="health-enemy">Health: ${enemy.health}</p>
       <p>Force Attack: ${enemy.forceAttack}</p>
@@ -202,32 +207,30 @@ const gameManager = {
   }
 }
 
-// console.log(gameManager.setGameStart)
-// console.log(player.prototype.jediDuel())
-
-
-
-
-
-
-
-
+// content
+const getInterface = document.querySelector('.jediProfiles .container');
 
 function createFight(jediName){
 // header
   const getHeader = document.querySelector('.header-content')
   getHeader.innerHTML = `<h2>${jediName}</h2>
   <p>Your goal is to win! good luck</p>`
-// content
-  const getInterface = document.querySelector('.jediProfiles .container');
+
   // adding a class
   getInterface.classList.add('jediFight')
+
   const playerDiv = document.createElement('div');
+  playerDiv.classList.add('jedi')
 
   let getAction = document.createElement('div');
   getAction.className = 'actions'
   getAction.innerHTML = `<a href="#" class="btn-preFight" onclick="gameManager.setFight()">Search for enemy</a>`
-  // let getArena = document.querySelector('.arena');
+
+  // ================
+  // Creating a taunt Button later
+  // const createTaunt = document.createElement('div');
+  // createTaunt.className = 'jediTaunt'
+  // ================
 
   // export content
   getInterface.innerHTML = '';
@@ -246,34 +249,3 @@ function createFight(jediName){
   getInterface.appendChild(getAction);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
